@@ -8,7 +8,7 @@ if (!@include_once("vendor/autoload.php")) {
 }
 
 include 'system/functions.php';
-include 'posts.php';
+include 'constants.php';
 
 // Load config
 if (file_exists('config.php')) {

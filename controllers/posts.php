@@ -1,18 +1,18 @@
 <?php namespace App;
 
-class welcome extends Controller
+class posts extends Controller
 {
 
     /**
-     * This is a normal action which will be called when user visits /welcome/index URL. Since index is the default
-     * action name, it may be omitted (URL can be /welcome). Since welcome is by default the default controller, it may
+     * This is a normal action which will be called when user visits /posts/index URL. Since index is the default
+     * action name, it may be omitted (URL can be /posts). Since posts is by default the default controller, it may
      * be omitted (URL can be /). After calling the action, a view from views/controller-name/controller-name_action-name.php
      * is loaded (it must exist, unless the function ends with stop() call.
      */
     function index()
     {
 
-        $this->users = get_all("SELECT * FROM users");
+        $this->posts = get_all("SELECT * FROM post");
     }
 
     /**
@@ -46,9 +46,9 @@ class welcome extends Controller
     /**
      * This function will only be ran in case of POST request
      */
-    function POST_index()
+    /*function POST_index()
     {
         echo "\$_POST:<br>";
         var_dump($_POST);
-    }
+    }*/
 }
