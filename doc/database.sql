@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 13, 2018 at 03:39 PM
+-- Generation Time: Mar 14, 2018 at 11:23 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post` x
+-- Table structure for table `post`
 --
 
 DROP TABLE IF EXISTS `post`;
@@ -28,12 +29,6 @@ CREATE TABLE `post` (
   `post_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONS FOR TABLE `post`:
---   `user_id`
---       `users` -> `user_id`
---
 
 --
 -- Dumping data for table `post`
@@ -57,10 +52,6 @@ CREATE TABLE `translations` (
   `controller` varchar(15) NOT NULL,
   `action` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONS FOR TABLE `translations`:
---
 
 --
 -- Dumping data for table `translations`
@@ -92,7 +83,8 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 (23, 'Action', 'en', '{untranslated}', 'global', 'global'),
 (24, 'Oops...', 'en', '{untranslated}', 'global', 'global'),
 (25, 'Close', 'en', '{untranslated}', 'global', 'global'),
-(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global');
+(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global'),
+(27, 'Wrong username or password', 'en', '{untranslated}', 'global', 'global');
 
 -- --------------------------------------------------------
 
@@ -109,10 +101,6 @@ CREATE TABLE `users` (
   `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `name` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONS FOR TABLE `users`:
---
 
 --
 -- Dumping data for table `users`
@@ -158,7 +146,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `translation_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `translation_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -173,3 +161,4 @@ ALTER TABLE `users`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+SET FOREIGN_KEY_CHECKS=1;
