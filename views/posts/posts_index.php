@@ -1,6 +1,7 @@
 <div class="span8">
     <?foreach($posts as $post):?>
-    <h1><?=$post['post_subject']?></h1>
+    <a href="<?=BASE_URL?>posts/view/<?=$post['post_id']?>"><h1><?=$post['post_subject']?></h1></a>
+
     <p>'You ought to be ashamed of yourself for asking such a simple question,' added the Gryphon; and then they both sat silent and looked at poor Alice, who felt ready to sink into the earth. At last the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be all day about it!' and he went on in these words:
         'Yes, we went to school in the sea, though you mayn't believe it—'
         'I never said I didn't!' interrupted Alice.
